@@ -1,0 +1,13 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    color: white;
+    background-color: black;
+    margin-left: 30px;
+  }
+  
+  .max-results {
+    display: block;
+  }
