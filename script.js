@@ -1,11 +1,9 @@
 'use strict';
 
-// put your own value below!
 const apiKey = 'n9d6S7cXKUtjAyuZ8rMfq9EFz1JIeseH8YwnOgvw'; 
 const searchURL = 'https://developer.nps.gov/api/v1/parks';
 
 function displayResults(responseJson) {
-  // if there are previous results, remove them
   $('#results-list').empty();
   for (let i = 0; i < responseJson.data.length; i++){
     $('#results-list').append(
@@ -15,7 +13,6 @@ function displayResults(responseJson) {
         <p><a href='${responseJson.data[i].url}'> ${responseJson.data[i].url} </a></p>
       </li>`
     )};
-  //display the results section  
   $('#results').removeClass('hidden');
 }
 
@@ -27,9 +24,6 @@ function formatQueryParams(params) {
 
 
 function npsList(query, maxResults=10) {
-  console.log(query);
-  console.log(maxResults);
-
   const params = {
     api_key: apiKey,
     stateCode: query,
@@ -38,8 +32,6 @@ function npsList(query, maxResults=10) {
 
   const queryString = formatQueryParams(params);
   const url = searchURL + '?' + queryString;
-
-  console.log(url);
 
   fetch(url)
     .then(response => {
